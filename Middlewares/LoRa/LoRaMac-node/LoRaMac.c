@@ -946,6 +946,7 @@ static void OnRadioRxDone( uint8_t *payload, uint16_t size, int16_t rssi, int8_t
 
 	sequenceCounter = ( uint16_t )payload[pktHeaderLen++];
 	sequenceCounter |= ( uint16_t )payload[pktHeaderLen++] << 8;
+	LOG_PRINTF(LL_DEBUG, "fcd{%u}\n\r", sequenceCounter);
 
 	appPayloadStartIndex = 8 + fCtrl.Bits.FOptsLen;
 

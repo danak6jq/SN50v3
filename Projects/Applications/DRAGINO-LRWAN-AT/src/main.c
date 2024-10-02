@@ -1552,11 +1552,9 @@ static void LORA_RxData( lora_AppData_t *AppData )
 	
 	LOG_PRINTF(LL_DEBUG,"\r\n");	
 #if 1
-	LOG_PRINTF(LL_DEBUG,"Receive signal: %d %u\r\n",
+	  LOG_PRINTF(LL_DEBUG,"rxsi{:%d,%u}\r\n",
 	  AppData->Rssi, AppData->Snr);
 #endif
-	LOG_PRINTF(LL_DEBUG,"Receive data\r\n");
-
     // message format is `fr{[port]:[data]}`
     LOG_PRINTF(LL_DEBUG, "fr{");
     // Stream output directly to serial when DL received (NG-60)
@@ -1812,7 +1810,7 @@ PowerStartPowerDownTimer(void)
 
 static void LORA_ConfirmClass ( DeviceClass_t Class )
 {
-    LOG_PRINTF(LL_DEBUG,"switch to class %c done\n\r","ABC"[Class] );
+    LOG_PRINTF(LL_DEBUG,"cl{%c}\n\r","ABC"[Class] );
 
     /*Optionnal*/
     /*informs the server that switch has occurred ASAP*/

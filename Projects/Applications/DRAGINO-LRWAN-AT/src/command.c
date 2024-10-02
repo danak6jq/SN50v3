@@ -1549,7 +1549,7 @@ static int at_fcu_func(int opt, int argc, char *argv[])
 						mib.Type = MIB_UPLINK_COUNTER;
 					  LoRaMacMibGetRequestConfirm(&mib);											
 					 
-            snprintf((char *)atcmd, ATCMD_SIZE, "%u\r\n", (unsigned int)mib.Param.UpLinkCounter);
+            snprintf((char *)atcmd, ATCMD_SIZE, "fcu{%u}\r\n", (unsigned int)mib.Param.UpLinkCounter);
 
 					 break;
         }
@@ -1609,7 +1609,7 @@ static int at_fcd_func(int opt, int argc, char *argv[])
 						mib.Type = MIB_DOWNLINK_COUNTER;
 					  LoRaMacMibGetRequestConfirm(&mib);											
 					 
-            snprintf((char *)atcmd, ATCMD_SIZE, "%u\r\n", (unsigned int)mib.Param.DownLinkCounter);
+            snprintf((char *)atcmd, ATCMD_SIZE, "fcd{%u}\r\n", (unsigned int)mib.Param.DownLinkCounter);
 
 					 break;
         }
