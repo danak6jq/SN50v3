@@ -1310,6 +1310,7 @@ static void OnMacStateCheckTimerEvent( void )
   GetPhyParams_t getPhy;
   PhyParam_t phyParam;
   bool txTimeout = false;
+  uint32_t old_fcu = UpLinkCounter;
 
   TimerStop( &MacStateCheckTimer );
 
@@ -1577,6 +1578,10 @@ static void OnMacStateCheckTimerEvent( void )
     }
     LoRaMacFlags.Bits.McpsIndSkip = 0;
     LoRaMacFlags.Bits.McpsInd = 0;
+  }
+  if (old_fcu != UpLinkCounter)
+  {
+    LOG_PRINTF(LL_DEBUG, "fcu{%u}\n\r", UpLinkCounter);
   }
 }
 
